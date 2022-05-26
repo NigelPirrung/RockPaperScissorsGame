@@ -16,34 +16,45 @@ public class RockPaperScissors {
 	public static void main(String[] args) {
 		
 		int menuChoice = game.displayMenu();
-	
-		switch (menuChoice) {
-		case 1:
-			System.out.print("\nPlease enter your choice (R,P,S): ");
-			String userInput = input.next().toUpperCase();
-			game.play(userInput);
-		break;
-		case 2:
-			while(game.userWinningCounter !=3 && game.opponentWinningCounter != 3) {
-				
-				System.out.println("\nScoreboard: \nYour Score: " + game.userWinningCounter + "\t Your opponent Score: " + game.opponentWinningCounter);
+		
+		while (menuChoice != 3) {
+		
+			switch (menuChoice) {
+			case 1:
 				System.out.print("\nPlease enter your choice (R,P,S): ");
-				userInput = input.next().toUpperCase();
-			
+				String userInput = input.next().toUpperCase();
 				game.play(userInput);
+			break;
+			case 2:
+				while(game.userWinningCounter !=3 && game.opponentWinningCounter != 3) {
+					
+					System.out.println("\nScoreboard: \nYour Score: " + game.userWinningCounter + "\t Your opponent Score: " + game.opponentWinningCounter);
+					System.out.print("\nPlease enter your choice (R,P,S): ");
+					userInput = input.next().toUpperCase();
+				
+					game.play(userInput);
+				}
+				
+				if(game.userWinningCounter ==3) {
+					System.out.println("\nCongrats! you won the match!");
+				}
+
+				if(game.opponentWinningCounter == 3) {
+					System.out.println("\nSadly you lost the match");
+				}
+				
+			break;
+			case 3:
+				System.exit(0);
+			break;
 			}
-			
-		break;
-		case 3:
-			System.exit(0);
-		break;
+			menuChoice = game.displayMenu();
 		}
-	
 	}
 	
 	
 	public int displayMenu() {
-		System.out.println("Welcome to the game Rock, Paper, Scissors!");
+		System.out.println("\nWelcome to the game Rock, Paper, Scissors!");
 		System.out.println("1. Play one game \n2. Play a best of 5\n3. Exit\nPlease select an option: ");
 		int menuChoice = input.nextInt();
 		return menuChoice;
