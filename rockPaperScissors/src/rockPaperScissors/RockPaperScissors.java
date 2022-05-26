@@ -9,35 +9,44 @@ import java.util.Scanner;
 public class RockPaperScissors {
 	
 	public int userWinningCounter, opponentWinningCounter, totalGameCounter;
+	public static Scanner input = new Scanner(System.in);
+	private static RockPaperScissors game = new RockPaperScissors();
+	
 	
 	public static void main(String[] args) {
 		
-		RockPaperScissors game = new RockPaperScissors();
-		
-		Scanner input = new Scanner(System.in);
-		System.out.print("Welcome to the game Rock, Paper, Scissors! This is a best 3 out of 5");
-		
-		//Loops through the games until a best of 5 is met.
-		while(game.userWinningCounter !=3 && game.opponentWinningCounter != 3) {
-		
-		System.out.println("\nScoreboard: \nYour Score: " + game.userWinningCounter + "\t Your opponent Score: " + game.opponentWinningCounter);
-		System.out.print("\nPlease enter your choice (R,P,S): ");
-		String userInput = input.next();
-		userInput = userInput.toUpperCase();	
+		int menuChoice = game.displayMenu();
 	
+		switch (menuChoice) {
+		case 1:
+			System.out.print("\nPlease enter your choice (R,P,S): ");
+			String userInput = input.next().toUpperCase();
 			game.play(userInput);
+		break;
+		case 2:
+			while(game.userWinningCounter !=3 && game.opponentWinningCounter != 3) {
+				
+				System.out.println("\nScoreboard: \nYour Score: " + game.userWinningCounter + "\t Your opponent Score: " + game.opponentWinningCounter);
+				System.out.print("\nPlease enter your choice (R,P,S): ");
+				userInput = input.next().toUpperCase();
+			
+				game.play(userInput);
+			}
+			
+		break;
+		case 3:
+			System.exit(0);
+		break;
 		}
-		
-		input.close();
-		
-		if(game.userWinningCounter ==3) {
-			System.out.println("\nCongrats! you won!");
-		}
-		
-		if(game.opponentWinningCounter == 3) {
-			System.out.println("\nSadly you lost");
-		}
-		 
+	
+	}
+	
+	
+	public int displayMenu() {
+		System.out.println("Welcome to the game Rock, Paper, Scissors!");
+		System.out.println("1. Play one game \n2. Play a best of 5\n3. Exit\nPlease select an option: ");
+		int menuChoice = input.nextInt();
+		return menuChoice;
 	}
 	
 	public void play(String userInput) {
