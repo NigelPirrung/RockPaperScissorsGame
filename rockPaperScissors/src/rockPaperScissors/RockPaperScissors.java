@@ -1,6 +1,4 @@
 package rockPaperScissors;
-
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -24,7 +22,7 @@ public class RockPaperScissors {
 				System.out.print("\nPlease enter your choice (R,P,S): ");
 				String userInput = input.next().toUpperCase();
 				
-				if(userInput != "R" || userInput != "S" || userInput != "P") {
+				if(!userInput.equals("R") && !userInput.equals("S") && !userInput.equals("P")) {
 					
 					System.out.println("You have not entered a valid option, Please enter your choice (R,P,S): ");
 					userInput = input.next().toUpperCase();
@@ -40,7 +38,7 @@ public class RockPaperScissors {
 					System.out.print("\nPlease enter your choice (R,P,S): ");
 					userInput = input.next().toUpperCase();
 					
-					if(userInput != "R" || userInput != "S" || userInput != "P") {
+					while(!userInput.equals("R") && !userInput.equals("S") && !userInput.equals("P")) {
 						
 						System.out.println("You have not entered a valid option, Please enter your choice (R,P,S): ");
 						userInput = input.next().toUpperCase();
