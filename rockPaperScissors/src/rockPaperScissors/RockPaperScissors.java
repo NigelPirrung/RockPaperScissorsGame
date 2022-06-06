@@ -23,6 +23,14 @@ public class RockPaperScissors {
 			case 1:
 				System.out.print("\nPlease enter your choice (R,P,S): ");
 				String userInput = input.next().toUpperCase();
+				
+				if(userInput != "R" || userInput != "S" || userInput != "P") {
+					
+					System.out.println("You have not entered a valid option, Please enter your choice (R,P,S): ");
+					userInput = input.next().toUpperCase();
+					
+				}
+				
 				game.play(userInput);
 			break;
 			case 2:
