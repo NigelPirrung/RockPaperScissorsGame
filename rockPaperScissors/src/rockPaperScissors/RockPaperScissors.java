@@ -39,6 +39,13 @@ public class RockPaperScissors {
 					System.out.println("\nScoreboard: \nYour Score: " + game.userWinningCounter + "\t Your opponent Score: " + game.opponentWinningCounter);
 					System.out.print("\nPlease enter your choice (R,P,S): ");
 					userInput = input.next().toUpperCase();
+					
+					if(userInput != "R" || userInput != "S" || userInput != "P") {
+						
+						System.out.println("You have not entered a valid option, Please enter your choice (R,P,S): ");
+						userInput = input.next().toUpperCase();
+						
+					}
 				
 					game.play(userInput);
 				}
