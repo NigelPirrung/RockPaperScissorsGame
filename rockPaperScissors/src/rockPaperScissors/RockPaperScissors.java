@@ -10,7 +10,7 @@ public class RockPaperScissors {
 	public static Scanner input = new Scanner(System.in);
 	private static RockPaperScissors game = new RockPaperScissors();
 	
-	
+	//This comment is to test the git interaction
 	public static void main(String[] args) {
 		
 		int menuChoice = game.displayMenu();
