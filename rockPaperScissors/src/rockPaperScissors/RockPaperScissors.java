@@ -7,10 +7,10 @@ import java.util.Scanner;
 public class RockPaperScissors {
 	
 	public int userWinningCounter, opponentWinningCounter, totalGameCounter;
-	public static Scanner input = new Scanner(System.in);
+	private static Scanner input = new Scanner(System.in);
 	private static RockPaperScissors game = new RockPaperScissors();
 	
-	//This comment is to test the git interaction 2nd time
+	
 	public static void main(String[] args) {
 		
 		int menuChoice = game.displayMenu();
